@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ch" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>C++ Review(1) - Tom Gou's Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/c-review1.html">
+
+        <meta name="author" content="Tom Gou" />
+        <meta name="keywords" content="C/C++,basic" />
+        <meta name="description" content="决定开始写博客了，留下一些记录，开始一个新起点。最近复习了一些C++的语法，虽然很简单，但就用它开始第一篇博客吧。" />
+
+        <meta property="og:site_name" content="Tom Gou's Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="C++ Review(1)"/>
+        <meta property="og:url" content="/c-review1.html"/>
+        <meta property="og:description" content="决定开始写博客了，留下一些记录，开始一个新起点。最近复习了一些C++的语法，虽然很简单，但就用它开始第一篇博客吧。"/>
+        <meta property="article:published_time" content="2016-02-19" />
+            <meta property="article:section" content="Blogs" />
+            <meta property="article:tag" content="C/C++" />
+            <meta property="article:tag" content="basic" />
+            <meta property="article:author" content="Tom Gou" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Tom Gou's Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/category/blogs.html">Blogs</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/c-review1.html"
+                       rel="bookmark"
+                       title="Permalink to C++ Review(1)">
+                        C++ Review(1)
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-02-19T12:20:00+08:00"> 五 19 二月 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/cc.html">C/C++</a>
+        /
+	<a href="/tag/basic.html">basic</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h3>1.数据类型</h3>
+<p><br /></p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>byte</th>
+<th>bit</th>
+<th>有效数字&nbsp;&nbsp;&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>4bytes</td>
+<td>32bits(-2^31 ~ 2^31-1)</td>
+<td></td>
+</tr>
+<tr>
+<td>short</td>
+<td>2bytes</td>
+<td>16bits</td>
+<td></td>
+</tr>
+<tr>
+<td>long</td>
+<td>4bytes</td>
+<td>32bits</td>
+<td></td>
+</tr>
+<tr>
+<td>unsigned</td>
+<td>4bytes</td>
+<td>32bits(0～2^32-1)</td>
+<td></td>
+</tr>
+<tr>
+<td>bool</td>
+<td>1byte</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td>1byte</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>4bytes</td>
+<td>32bits(-2^128 ~ 2^128)</td>
+<td>6~7</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8bytes</td>
+<td>64bits(-2^1024 ~ 2^1024)&nbsp;&nbsp;&nbsp;</td>
+<td>15~16</td>
+</tr>
+<tr>
+<td>long double&nbsp;&nbsp;&nbsp;</td>
+<td>16bytes &nbsp;&nbsp;&nbsp;</td>
+<td></td>
+<td>18~19</td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<p>注意：</p>
+<ul>
+<li>long int 和 int在16位以上机器相同，均为32位，16位机器int为16位</li>
+<li>bool值有两种true和false，字节值为1或0</li>
+<li>char一个字节，字节中存放的是对应字符的ASCII值，如<code>'A'</code></li>
+<li>实型数（浮点型）在计算机内不能精确表示。</li>
+<li>其中float4字节，32位，符号位1位，指数位8位，于是float的指数范围为-127~128。float尾数部分23位，2^23 = 8388608，一共七位，这意味着float最多能有7位有效数字，但绝对能保证的为6位。</li>
+</ul>
+<p>可以通过<code>sizeof()</code>了解不同类型占用多少内存量（字节）：</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>执行结果：</p>
+<div class="highlight"><pre><span></span>4
+8
+16
+</pre></div>
+
+
+<ul>
+<li>123e3,123E3(科学计数法 123*10^3 )</li>
+<li>一维数组 <code>int a[10];</code></li>
+<li>二维数组 <code>int a[4][5];//4*5</code></li>
+<li>
+<p>字符串
+<code>char ch[] = "Hello,world";</code>或
+<code>char ch[] = {"Hello,world"};</code>或
+<code>char ch[] = {'H','e','l','l','o',',','w','o','r','l','d','\0'};</code></p>
+<ul>
+<li>==<strong>以<code>'\0'</code>为结束符</strong>==</li>
+<li><code>'a'</code>与<code>"a"</code>：<code>'a'</code>为字符常量，一字节（a的ASCII值）；<code>"a"</code>为字符串，2字节（a的ASCII值和'\0'）</li>
+<li>字符串处理函数
+<code>#include&lt;cstring&gt;</code> <code>strcpy(dst, src)</code> <code>strlen(s)</code> <code>strchr(s, ch)</code> <code>strcmp(s1, s2)</code></li>
+</ul>
+</li>
+<li>
+<p>enum枚举
+<code>enum weekdayT{SUnday, Monday};</code></p>
+</li>
+</ul>
+<p><br /></p>
+<hr />
+<h3>2.基础知识</h3>
+<ul>
+<li>位，比特，bit(二进制的一位)</li>
+<li>字节，byte，B（8个位组成一个字节）</li>
+<li>注释</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">//一行的注释</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="cm">/*多行</span>
+<span class="cm">的注释</span>
+<span class="cm">*/</span>
+</pre></div>
+
+
+<ul>
+<li>库包含</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&quot;user.h&quot;    //自己写的库user</span><span class="cp"></span>
+</pre></div>
+
+
+<ul>
+<li>宏定义</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="cp">#define PI 3.14159</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>转义
+<code>'\n'</code>换行    <code>'\t'</code>Tab   <code>'\\'</code>反斜杠</p>
+</li>
+<li>
+<p>内存量<code>sizeof()</code></p>
+</li>
+<li>
+<p>符号常量</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+</pre></div>
+
+
+<ul>
+<li>数学函数库</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">fabs</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">exp</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">sqrt</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>
+</pre></div>
+
+
+<ul>
+<li>自增自减运算</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">++</span><span class="p">;</span>    <span class="c1">//先 y = x，再x++</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>输入输出</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">ch1</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="sc">&#39;.&#39;</span><span class="p">);</span>  <span class="c1">//字符串输入（,数组长度,结束标记）</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>主程序</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">//#include &lt;iostream&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>    <span class="c1">//名字空间</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello world!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>条件句
+<code>&lt;</code>小于 <code>&lt;=</code>小于等于 <code>==</code>==<strong>等于</strong>== <code>!=</code>不等于</p>
+</li>
+<li>
+<p>逻辑运算
+<code>&amp;&amp;</code>与 <code>||</code>或 <code>!</code>非</p>
+</li>
+</ul>
+<p><br /></p>
+<hr />
+<h3>3.控制流</h3>
+<ul>
+<li>if语句</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span>  <span class="p">)</span> <span class="n">XXX</span><span class="p">;</span>
+<span class="k">else</span><span class="p">{</span>   <span class="n">XXX</span><span class="p">;</span>
+        <span class="n">XXX</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>条件表达式?:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span><span class="o">?</span><span class="nl">x</span><span class="p">:</span><span class="n">y</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>switch语句</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(){</span>
+    <span class="k">case</span> <span class="nl">const1</span><span class="p">:</span> <span class="n">XXX</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">const2</span><span class="p">:</span> <span class="n">XXX</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>     <span class="n">XXX</span><span class="p">;</span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>for循环</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="n">XXX</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>while循环</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span> <span class="p">){</span>
+    <span class="n">XXX</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>do-while循环</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">do</span><span class="p">{</span>
+    <span class="n">XXX</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span><span class="p">(</span> <span class="p">);</span>
+</pre></div>
+
+
+<ul>
+<li>循环中途退出</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span> <span class="p">){</span>
+    <span class="n">XXX</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>随机数</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;ctime&gt;</span><span class="cp"></span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>  <span class="c1">//随机种子初始化</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">RAND_MAX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="n">RAND_MAX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+    
+<!-- 多说评论框 start -->
+    <div class="ds-thread"  data-url="blog.tomgou.xyz"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tomgou"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/plain1994"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+                <li class="list-group-item"><a href="http://weibo.com/tomgou"><i class="fa fa-weibo fa-lg"></i> weibo</a></li>
+                <li class="list-group-item"><a href="http://www.facebook.com/yuchuangou"><i class="fa fa-facebook-square fa-lg"></i> facebook</a></li>
+              </ul>
+            </li>
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Tom Gou
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-74218843-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+
+</body>
+</html>
