@@ -4,91 +4,91 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>blog.tomgou.xyz/</loc>
-<lastmod>2016-03-03T00:23:57-00:00</lastmod>
+<loc>http://blog.tomgou.xyz/</loc>
+<lastmod>2016-03-03T00:33:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/archives.html</loc>
-<lastmod>2016-03-03T00:23:57-00:00</lastmod>
+<loc>http://blog.tomgou.xyz/archives.html</loc>
+<lastmod>2016-03-03T00:33:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/tags.html</loc>
-<lastmod>2016-03-03T00:23:57-00:00</lastmod>
+<loc>http://blog.tomgou.xyz/tags.html</loc>
+<lastmod>2016-03-03T00:33:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/categories.html</loc>
-<lastmod>2016-03-03T00:23:57-00:00</lastmod>
+<loc>http://blog.tomgou.xyz/categories.html</loc>
+<lastmod>2016-03-03T00:33:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/spark-160-dan-ji-an-zhuang-pei-zhi.html</loc>
+<loc>http://blog.tomgou.xyz/spark-160-dan-ji-an-zhuang-pei-zhi.html</loc>
 <lastmod>2016-02-25T19:08:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/c-review1.html</loc>
+<loc>http://blog.tomgou.xyz/c-review1.html</loc>
 <lastmod>2016-02-19T12:20:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/category/blogs.html</loc>
+<loc>http://blog.tomgou.xyz/category/blogs.html</loc>
 <lastmod>2016-02-25T19:08:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/tag/cc.html</loc>
+<loc>http://blog.tomgou.xyz/tag/cc.html</loc>
 <lastmod>2016-02-19T12:20:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/tag/spark.html</loc>
+<loc>http://blog.tomgou.xyz/tag/spark.html</loc>
 <lastmod>2016-02-25T19:08:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/tag/installation.html</loc>
+<loc>http://blog.tomgou.xyz/tag/installation.html</loc>
 <lastmod>2016-02-25T19:08:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/tag/hadoop.html</loc>
+<loc>http://blog.tomgou.xyz/tag/hadoop.html</loc>
 <lastmod>2016-02-25T19:08:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/tag/basic.html</loc>
+<loc>http://blog.tomgou.xyz/tag/basic.html</loc>
 <lastmod>2016-02-19T12:20:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>blog.tomgou.xyz/author/tom-gou.html</loc>
+<loc>http://blog.tomgou.xyz/author/tom-gou.html</loc>
 <lastmod>2016-02-25T19:08:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
