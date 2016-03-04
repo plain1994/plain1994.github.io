@@ -26,6 +26,7 @@
     <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
 
@@ -54,6 +55,11 @@ tomgou.xyz            </a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
               <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
@@ -118,11 +124,61 @@ tomgou.xyz            </a>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-spark">Spark <span class="badge pull-right">1</span></a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-intellij-idea">IntelliJ IDEA <span class="badge pull-right">1</span></a>
+                    </h4>
+                </div>
+                <div id="collapse-intellij-idea" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><span class="categories-timestamp"><time datetime="2016-02-26T22:40:00+08:00">五 26 二月 2016</time></span> <a href="/shi-yong-intellij-ideapei-zhi-sparkying-yong-kai-fa-huan-jing-ji-yuan-ma-yue-du-huan-jing.html">使用IntelliJ IDEA配置Spark应用开发环境及源码阅读环境</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pycharm">PyCharm <span class="badge pull-right">1</span></a>
+                    </h4>
+                </div>
+                <div id="collapse-pycharm" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><span class="categories-timestamp"><time datetime="2016-03-04T11:18:00+08:00">五 04 三月 2016</time></span> <a href="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html">使用PyCharm配置Spark的Python开发环境</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pyspark">pyspark <span class="badge pull-right">1</span></a>
+                    </h4>
+                </div>
+                <div id="collapse-pyspark" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><span class="categories-timestamp"><time datetime="2016-03-04T11:18:00+08:00">五 04 三月 2016</time></span> <a href="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html">使用PyCharm配置Spark的Python开发环境</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-python">Python <span class="badge pull-right">1</span></a>
+                    </h4>
+                </div>
+                <div id="collapse-python" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><span class="categories-timestamp"><time datetime="2016-03-04T11:18:00+08:00">五 04 三月 2016</time></span> <a href="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html">使用PyCharm配置Spark的Python开发环境</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-spark">Spark <span class="badge pull-right">3</span></a>
                     </h4>
                 </div>
                 <div id="collapse-spark" class="panel-collapse collapse">
                     <div class="panel-body">
+                        <p><span class="categories-timestamp"><time datetime="2016-03-04T11:18:00+08:00">五 04 三月 2016</time></span> <a href="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html">使用PyCharm配置Spark的Python开发环境</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2016-02-26T22:40:00+08:00">五 26 二月 2016</time></span> <a href="/shi-yong-intellij-ideapei-zhi-sparkying-yong-kai-fa-huan-jing-ji-yuan-ma-yue-du-huan-jing.html">使用IntelliJ IDEA配置Spark应用开发环境及源码阅读环境</a></p>
                         <p><span class="categories-timestamp"><time datetime="2016-02-25T19:08:00+08:00">四 25 二月 2016</time></span> <a href="/spark-160-dan-ji-an-zhuang-pei-zhi.html">Spark 1.6.0 单机安装配置</a></p>
                     </div>
                 </div>
@@ -167,6 +223,26 @@ tomgou.xyz            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="/tag/intellij-idea.html">
+                            IntelliJ IDEA
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="/tag/pycharm.html">
+                            PyCharm
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="/tag/pyspark.html">
+                            pyspark
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="/tag/spark.html">
                             Spark
                         </a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ch" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Installation - tomgou.xyz</title>
+    <title>使用PyCharm配置Spark的Python开发环境 - tomgou.xyz</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,24 @@
 
     <link href="/images/carrot.jpg" rel="icon">
 
+<link rel="canonical" href="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html">
 
-    <meta name="author" content="Yuchuan Gou" />
-    <meta name="keywords" content="Installation" />
+        <meta name="author" content="Tom Gou" />
+        <meta name="keywords" content="Spark,PyCharm,Python,pyspark" />
+        <meta name="description" content="在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python程序外，我们可以使用PyCharm这个IDE在本地进行开发调试,提升我们的开发效率。" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="tomgou.xyz" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="tomgou.xyz"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="tomgou.xyz"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="使用PyCharm配置Spark的Python开发环境"/>
+        <meta property="og:url" content="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html"/>
+        <meta property="og:description" content="在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python程序外，我们可以使用PyCharm这个IDE在本地进行开发调试,提升我们的开发效率。"/>
+        <meta property="article:published_time" content="2016-03-04" />
+            <meta property="article:section" content="Blogs" />
+            <meta property="article:tag" content="Spark" />
+            <meta property="article:tag" content="PyCharm" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="pyspark" />
+            <meta property="article:author" content="Tom Gou" />
 
 
     <!-- Bootstrap -->
@@ -51,7 +59,7 @@ tomgou.xyz            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="/category/blogs.html">Blogs</a>
                         </li>
             </ul>
@@ -72,13 +80,116 @@ tomgou.xyz            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2><a href="/spark-160-dan-ji-an-zhuang-pei-zhi.html">Spark 1.6.0 单机安装配置</a></h2>
-                <div class="summary"><p>用Ubuntu 14.04.4 LTS当主系统已经有一段时间了，以前在8节点服务器配置过Spark和Hadoop，今天花一点时间在单机部署一下Spark吧，整理好自己的Spark开发环境。</p>
-                    <a class="btn btn-default btn-xs" href="/spark-160-dan-ji-an-zhuang-pei-zhi.html">more ...</a>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html"
+                       rel="bookmark"
+                       title="Permalink to 使用PyCharm配置Spark的Python开发环境">
+                        使用PyCharm配置Spark的Python开发环境
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-04T11:18:00+08:00"> 五 04 三月 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/spark.html">Spark</a>
+        /
+	<a href="/tag/pycharm.html">PyCharm</a>
+        /
+	<a href="/tag/python.html">Python</a>
+        /
+	<a href="/tag/pyspark.html">pyspark</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
+                <p>在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python程序外，我们可以使用PyCharm这个IDE在本地进行开发调试,提升我们的开发效率。配置过程也十分简单，在stackoverflow上搜索到的。同时，IntelliJ IDEA加入Python插件后也可以使用Python开发Spark程序，配置步骤一致。</p>
+<h3>0.安装PyCharm和py4j</h3>
+<p>我的系统环境（Ubuntu 14.04.4 LTS）</p>
+<p>下载安装最新版本的PyCharm，官网地址：<a href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a> 。</p>
+<p>安装步骤：
+- Unpack the pycharm-5.0.4.tar.gz using the following command: 
+tar xfz pycharm-5.0.4.tar.gz
+- Run pycharm.sh from the bin subdirectory</p>
+<p>安装py4j：</p>
+<div class="highlight"><pre><span></span>$ sudo pip install py4j
+</pre></div>
+
+
+<p><br /></p>
+<hr />
+<h3>1.配置Pycharm</h3>
+<p>打开PyCharm，创建一个Project。
+然后选择“Run” -&gt;“Edit Configurations” -&gt;“Environment variables”
+<img alt="pycharm_conf1" src="http://7xra46.com1.z0.glb.clouddn.com/blog4_pycharm/pycharm_conf1.png" />
+增加SPARK_HOME目录与PYTHONPATH目录。
+- SPARK_HOME:Spark安装目录
+- PYTHONPATH:Spark安装目录下的Python目录
+<img alt="pycharm_conf2" src="http://7xra46.com1.z0.glb.clouddn.com/blog4_pycharm/pycharm_conf2.png" /></p>
+<p><br /></p>
+<hr />
+<h3>2.测试Pycharm</h3>
+<p>运行一个小的Spark程序看看：</p>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;SimpleApp&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">SparkContext</span>
+
+<span class="n">logFile</span> <span class="o">=</span> <span class="s2">&quot;/home/tom/spark-1.6.0/README.md&quot;</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">,</span><span class="s2">&quot;Simple App&quot;</span><span class="p">)</span>
+<span class="n">logData</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="n">logFile</span><span class="p">)</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+
+<span class="n">numAs</span> <span class="o">=</span> <span class="n">logData</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">numBs</span> <span class="o">=</span> <span class="n">logData</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Lines with a: </span><span class="si">%i</span><span class="s2">, lines with b: </span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">numAs</span><span class="p">,</span> <span class="n">numBs</span><span class="p">))</span>
+</pre></div>
+
+
+<p>运行结果：</p>
+<div class="highlight"><pre><span></span>Lines with a: 58, lines with b: 26
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+            
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox"></div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d3af0e9a805928"></script>
+    <!-- AddThis Button END -->
+
+<!-- 多说评论框 start -->
+    <div class="ds-thread"  data-url="blog.tomgou.xyz/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tomgou"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+            
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -231,6 +342,8 @@ tomgou.xyz            </a>
         })();
     </script>
     <!-- End Google Analytics Code -->
+
+
 
 </body>
 </html>
