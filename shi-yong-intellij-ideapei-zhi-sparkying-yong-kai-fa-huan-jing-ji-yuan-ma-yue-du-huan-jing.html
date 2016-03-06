@@ -114,9 +114,11 @@ tomgou.xyz            </a>
 <p>我的系统环境（Ubuntu 14.04.4 LTS）</p>
 <p>下载最新版本的IntelliJ IDEA，官网地址：<a href="https://www.jetbrains.com/idea/download/">https://www.jetbrains.com/idea/download/</a> 。
 最新版本的IntelliJ IDEA支持新建SBT工程，安装scala插件。</p>
-<p>安装步骤：
-- Unpack the idea idea-15.0.4.tar.gz file using the following command: tar xfz idea-15.0.4.tar.gz
-- Run idea.sh from the bin subdirectory.</p>
+<p>安装步骤：</p>
+<ul>
+<li>Unpack the idea idea-15.0.4.tar.gz file using the following command: tar xfz idea-15.0.4.tar.gz</li>
+<li>Run idea.sh from the bin subdirectory.</li>
+</ul>
 <p>记得在IntelliJ IDEA的“Configure”菜单中，选择“Plugins”，安装“Scala”插件。</p>
 <p><br /></p>
 <hr />
@@ -136,14 +138,16 @@ Spark安装目录的examples目录下，可以找到Scala编写的示例程序<c
 在我最初运行Spark的测试程序SparkPi时，点击运行，出现了如下错误：
 Exception in thread "main" org.apache.spark.SparkException: A master URL must be set in your configuration
 从提示中可以看出找不到程序运行的master，此时需要配置环境变量。
-搜索引擎查询错误后，了解到传递给spark的master url可以有如下几种，具体可以查看Spark官方文档：
-- local 本地单线程
-- local[K] 本地多线程（指定K个内核）
-- local[*] 本地多线程（指定所有可用内核）
-- spark://HOST:PORT 连接到指定的 Spark standalone cluster master，需要指定端口。
-- mesos://HOST:PORT 连接到指定的 Mesos 集群，需要指定端口。
-- yarn-client客户端模式 连接到 YARN 集群。需要配置 HADOOP_CONF_DIR。
-- yarn-cluster集群模式 连接到 YARN 集群。需要配置 HADOOP_CONF_DIR。</p>
+搜索引擎查询错误后，了解到传递给spark的master url可以有如下几种，具体可以查看Spark官方文档：</p>
+<ul>
+<li>local 本地单线程</li>
+<li>local[K] 本地多线程（指定K个内核）</li>
+<li>local[*] 本地多线程（指定所有可用内核）</li>
+<li>spark://HOST:PORT 连接到指定的 Spark standalone cluster master，需要指定端口。</li>
+<li>mesos://HOST:PORT 连接到指定的 Mesos 集群，需要指定端口。</li>
+<li>yarn-client客户端模式 连接到 YARN 集群。需要配置 HADOOP_CONF_DIR。</li>
+<li>yarn-cluster集群模式 连接到 YARN 集群。需要配置 HADOOP_CONF_DIR。</li>
+</ul>
 <p>在VM options中输入“<code>-Dspark.master=local</code>”，指示本程序本地单线程运行。</p>
 <p><br /></p>
 <hr />
