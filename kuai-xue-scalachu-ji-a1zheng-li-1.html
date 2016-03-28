@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ch" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>快学Scala初级A1整理(1) - tomgou.xyz</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="http://blog.tomgou.xyz/images/carrot.jpg" rel="icon">
+
+<link rel="canonical" href="http://blog.tomgou.xyz/kuai-xue-scalachu-ji-a1zheng-li-1.html">
+
+        <meta name="author" content="Tom Gou" />
+        <meta name="keywords" content="Scala,Spark,basic" />
+        <meta name="description" content="Scala是一门有趣且实用的语言，它以JVM位目标环境，将面向对象和函数式编程有机地结合起来，带来独特的编程体验。本文主要整理《快学Scala》中的初级A1部分，适用于Scala的初级应用开发学习。" />
+
+        <meta property="og:site_name" content="tomgou.xyz" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="快学Scala初级A1整理(1)"/>
+        <meta property="og:url" content="http://blog.tomgou.xyz/kuai-xue-scalachu-ji-a1zheng-li-1.html"/>
+        <meta property="og:description" content="Scala是一门有趣且实用的语言，它以JVM位目标环境，将面向对象和函数式编程有机地结合起来，带来独特的编程体验。本文主要整理《快学Scala》中的初级A1部分，适用于Scala的初级应用开发学习。"/>
+        <meta property="article:published_time" content="2016-03-27" />
+            <meta property="article:section" content="Blogs" />
+            <meta property="article:tag" content="Scala" />
+            <meta property="article:tag" content="Spark" />
+            <meta property="article:tag" content="basic" />
+            <meta property="article:author" content="Tom Gou" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.tomgou.xyz/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.tomgou.xyz/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.tomgou.xyz/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="http://blog.tomgou.xyz/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.tomgou.xyz/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.tomgou.xyz/" class="navbar-brand">
+tomgou.xyz            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="http://blog.tomgou.xyz/category/blogs.html">Blogs</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="http://blog.tomgou.xyz/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.tomgou.xyz/kuai-xue-scalachu-ji-a1zheng-li-1.html"
+                       rel="bookmark"
+                       title="Permalink to 快学Scala初级A1整理(1)">
+                        快学Scala初级A1整理(1)
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-27T14:08:00+08:00"> 日 27 三月 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.tomgou.xyz/tag/scala.html">Scala</a>
+        /
+	<a href="http://blog.tomgou.xyz/tag/spark.html">Spark</a>
+        /
+	<a href="http://blog.tomgou.xyz/tag/basic.html">basic</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Scala是一门有趣且实用的语言，它以JVM位目标环境，将面向对象和函数式编程有机地结合起来，带来独特的编程体验。本文主要整理《快学Scala》中的初级A1部分，适用于Scala的初级应用开发学习。转载请注明博客原文地址：<a href="http://blog.tomgou.xyz/kuai-xue-scalachu-ji-a1zheng-li-1.html">http://blog.tomgou.xyz/kuai-xue-scalachu-ji-a1zheng-li-1.html</a></p>
+<h3>0.安装和运行scala</h3>
+<p>解压scala安装包到任意目录：</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /home/tom
+$ tar -xzvf scala-2.10.6.tgz
+$ sudo vim /etc/profile
+</pre></div>
+
+
+<p>在<code>/etc/profile</code>文件的末尾添加环境变量：</p>
+<div class="highlight"><pre><span></span><span class="x">export SCALA_HOME=/home/tom//scala-2.10.6</span>
+<span class="x">export PATH=</span><span class="p">$</span><span class="nv">SCALA_HOME</span><span class="x">/bin:</span><span class="p">$</span><span class="nv">PATH</span><span class="x"></span>
+</pre></div>
+
+
+<p>保存并更新<code>/etc/profile</code>：</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">source</span> /etc/profil
+</pre></div>
+
+
+<p>查看是否成功：</p>
+<div class="highlight"><pre><span></span>$ scala -version
+</pre></div>
+
+
+<p>建立一个简单的scala程序<code>scalatest.scala</code>：</p>
+<div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">scalatest</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span><span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">]){</span>
+    <span class="k">def</span> <span class="n">box</span><span class="o">(</span><span class="n">s</span><span class="k">:</span><span class="kt">String</span><span class="o">){</span>
+      <span class="k">var</span> <span class="n">border</span> <span class="k">=</span> <span class="s">&quot;-&quot;</span> <span class="o">*</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="s">&quot;--\n&quot;</span>
+      <span class="n">println</span><span class="o">(</span><span class="n">border</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span><span class="s">&quot;|\n&quot;</span> <span class="o">+</span> <span class="n">border</span><span class="o">)</span>
+    <span class="o">}</span>
+    <span class="n">box</span><span class="o">(</span><span class="s">&quot;Hello Tom!&quot;</span><span class="o">)</span>
+
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>编译程序：</p>
+<div class="highlight"><pre><span></span>$  scalac scalatest.scala
+</pre></div>
+
+
+<p>执行程序：</p>
+<div class="highlight"><pre><span></span>$  scala scalatest
+</pre></div>
+
+
+<p>得到结果：</p>
+<div class="highlight"><pre><span></span>------------
+|Hello Tom!|
+------------
+</pre></div>
+
+
+<hr />
+<h3>1.Scala基础</h3>
+<h4>1.1 Scala解释器</h4>
+<p>Scala解释器读到一个表达式，对它求值，将其打印，接着再继续读下一个表达式。这个过程被称为读取-求值-打印-循环，即REPL。</p>
+<div class="highlight"><pre><span></span>scala&gt; 8 * 5 + 2
+res0: Int = 42
+</pre></div>
+
+
+<p>从技术上讲，scala程序并不是一个解释器。实际发生的过程是，你输入的内容被快速地编译成字节码，然后这段字节码交由Java虚拟机执行。</p>
+<blockquote>
+<p>REPL在同一时间只能看到一行代码。
+在REPL粘贴成块代码，需要键入<code>:paste</code>，粘贴代码块，然后按下Ctrl+D。</p>
+</blockquote>
+<h4>1.2 常量与变量</h4>
+<p>以val定义常量，以var定义变量：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">answer</span> <span class="k">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">var</span> <span class="n">counter</span> <span class="k">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="k">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>在Scala中，我们鼓励使用val。同时，你不需要给出值或者变量的类型，这个信息可以从你初始化它的表达式中判断出来。必要时，可指定类型，如：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">greeting</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kc">null</span>
+</pre></div>
+
+
+<p>在Scala中，无需分号，仅当同一行代码中存在多条语句时才用分号分开。</p>
+<h4>1.3 常用类型</h4>
+<p>和Java一样，Scala有7种数据类型：
+Byte Char Short Int Long Float Double Boolean
+跟Java不同的是，这些类型是类。你可以对数字执行方法，如：</p>
+<div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">toString</span><span class="o">()</span> <span class="c1">//产出字符串&quot;1&quot;</span>
+<span class="mf">1.</span><span class="n">to</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="c1">//产出Range(1,2,3,4,5)</span>
+</pre></div>
+
+
+<p>Scala用底层的java.lang.String类来表示字符串，不过通过StringOps类给字符串追加了上百种操作，比如：</p>
+<div class="highlight"><pre><span></span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="n">intersect</span><span class="o">(</span><span class="s">&quot;World&quot;</span><span class="o">)</span> <span class="c1">//输出&quot;lo&quot;</span>
+</pre></div>
+
+
+<p>Scala还提供了RichInt，RichDouble，RichChar等，提供了Int，Double，Char不具备的便捷方法。比如<code>1.to(10)</code>中，Int值1首先被转换成RichInt，然后调用to方法。</p>
+<h4>1.4 算术和操作符重载</h4>
+<p>+-*/%等操作符实际上是方法，比如<code>a+b</code>是如下方法<code>a.+(b)</code>的简写。
+通常你可以用<code>a 方法 b</code>来简写方法<code>a.方法(b)</code>。比如<code>1.to(5)</code>可以写成<code>1 to 5</code>。
+Scala没有提供<code>++</code>和<code>--</code>操作符，需要使用<code>+=1</code>或<code>-=1</code>，如<code>counter += 1</code>。</p>
+<h4>1.5 调用函数和方法</h4>
+<p>在Scala中使用数学函数比Java简单，你不需要从某个类调用它的静态方法。</p>
+<div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+<span class="n">pow</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span><span class="c1">//16.0</span>
+<span class="n">min</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="nc">Pi</span><span class="o">)</span><span class="c1">//3.0</span>
+</pre></div>
+
+
+<p>这些数学函数在<code>scala.math</code>包中定义，可以通过以下语句引入：</p>
+<div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">scala.math._</span> <span class="c1">//在Scala中，_字符是通配符，类似Java中的*</span>
+</pre></div>
+
+
+<p>引入以scala.开头的包时，可以省去scala前缀。
+不带参数的Scala方法通常不使用圆括号，如：</p>
+<div class="highlight"><pre><span></span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="n">distinct</span>
+</pre></div>
+
+
+<h4>1.6 apply方法</h4>
+<div class="highlight"><pre><span></span><span class="s">&quot;Hello&quot;</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span><span class="c1">//将产出&#39;o&#39;</span>
+</pre></div>
+
+
+<p><code>"Hello"(4)</code>是如下方法的简写：</p>
+<div class="highlight"><pre><span></span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="n">apply</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span>
+</pre></div>
+
+
+<p><code>()</code>操作符可以作为apply方法的重载形式，比如说将字符串或数字转换成BigInt对象的apply方法,<code>BigInt("123")</code>是<code>BigInt.apply("123")</code>的简写，<code>Array(1,4,9)</code>返回一个数组，用的就是Array伴生对象的apply方法。</p>
+<h4>1.7 Scaladoc</h4>
+<p>可以在<a href="http://www.scala-lang.org/api">http://www.scala-lang.org/api</a>在线浏览Scaladoc。
+- 类名旁的O和C分别链接到对应的类（C）和伴生对象（O）
+- 标记为implicit的方法对应的是自动隐式转换
+- 方法可以以函数作为参数</p>
+<hr />
+<h3>2.控制流与函数</h3>
+<h4>2.1 条件表达式</h4>
+<p>Scala中的if/else表达式有值，这个值就是if或else后的值，如：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="mi">1</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>上式将if/else表达式的值赋值给常量。还可以这样写：</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">s</span> <span class="k">=</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">s</span> <span class="k">=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>不过第一种写法更好，第二种写法中，s必须是变量var。</p>
+<p>如下是混合类型的条件表达式：</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="s">&quot;positive&quot;</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>一个分支是String，另一个是Int，它们的公共超类型叫做Any。</p>
+<p>当if语句没有输出值时，引入了Unit类，写做<code>()</code>。如下：</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="mi">1</span> <span class="k">else</span> <span class="o">()</span>
+</pre></div>
+
+
+<p><code>()</code>可以当做是表示“无有用值”的占位符。</p>
+<h4>2.2 语句终止</h4>
+<p>Scala与JavaScript等脚本语言类似，行尾位置不需要分号。
+如果你在写较长的语句，需要分两行来写的话，确保第一行以一个不能用作语句结尾的符号结尾，如：</p>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="k">=</span> <span class="n">s0</span> <span class="o">+</span> <span class="o">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">v0</span><span class="o">)</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span>
+    <span class="mf">0.5</span> <span class="o">*</span> <span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">a0</span><span class="o">)</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+</pre></div>
+
+
+<p>Scala程序员倾向使用Kernighan &amp; Ritchie风格的花括号：</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">r</span> <span class="k">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h4>2.3 块表达式与赋值</h4>
+<p>在Scala中，<code>{}</code>块包含一系列表达式。块中最后一个表达式的值就是块的值。如：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">distance</span> <span class="k">=</span> <span class="o">{</span><span class="k">val</span> <span class="n">dx</span><span class="k">=</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="o">;</span><span class="k">val</span> <span class="n">dy</span><span class="k">=</span><span class="n">y</span><span class="o">-</span><span class="n">y0</span><span class="o">;</span><span class="n">sqrt</span><span class="o">(</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="o">+</span><span class="n">dy</span><span class="o">*</span><span class="n">dy</span><span class="o">)}</span>
+</pre></div>
+
+
+<p>赋值动作本身是没有值的，是Unit类型的。一个以赋值语句结束的块，比如：<code>{r=r*n;n-=1}</code>的值是Unit类型的。<code>x=y=1//别这样</code>中，x被赋的值是Unit类型的。</p>
+<h4>2.4 输入与输出</h4>
+<p>打印：</p>
+<div class="highlight"><pre><span></span><span class="n">print</span><span class="o">(</span><span class="s">&quot;hello&quot;</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="mi">42</span><span class="o">)</span> <span class="c1">//打印内容后会追加一个换行符</span>
+</pre></div>
+
+
+<p>格式化字符串的printf：</p>
+<div class="highlight"><pre><span></span><span class="n">printf</span><span class="o">(</span><span class="s">&quot; %s is %d years old.\n&quot;</span><span class="o">,</span><span class="s">&quot;Fred&quot;</span><span class="o">,</span><span class="mi">42</span><span class="o">)</span>
+</pre></div>
+
+
+<p>用readLine函数从控制台读取一行输入：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="n">readLine</span><span class="o">(</span><span class="s">&quot;Your name: &quot;</span><span class="o">)</span>
+</pre></div>
+
+
+<h4>2.5 循环</h4>
+<p>Scala拥有与Java和C++相同的while和do循环，如：</p>
+<div class="highlight"><pre><span></span><span class="k">while</span><span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+    <span class="n">r</span> <span class="k">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>for循环使用<code>for(i &lt;- 表达式)</code>这样的语法结构，让变量i遍历表达式的所有值，如：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span><span class="o">)</span>
+    <span class="n">r</span> <span class="k">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">i</span>
+</pre></div>
+
+
+<p>遍历字符串或数组时，通常需要使用0到n-1的区间，until方法返回一个不包含上限的区间：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="s">&quot;hello&quot;</span>
+<span class="k">var</span> <span class="n">sum</span> <span class="k">=</span> <span class="mi">0</span>
+<span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span><span class="o">)</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">s</span><span class="o">(</span><span class="n">i</span><span class="o">)</span>
+</pre></div>
+
+
+<p>或：</p>
+<div class="highlight"><pre><span></span><span class="k">var</span> <span class="n">sum</span> <span class="k">=</span> <span class="mi">0</span>
+<span class="k">for</span><span class="o">(</span><span class="n">ch</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="s">&quot;hello&quot;</span><span class="o">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">ch</span>
+</pre></div>
+
+
+<blockquote>
+<p>Scala没有提供break或continue语句来退出循环，我们可以：
+1.使用Boolean型的控制变量。
+2.嵌套函数，函数中return。
+3.使用Breaks对象中的break方法。</p>
+</blockquote>
+<h4>2.6 高级for循环</h4>
+<p>多个生成器：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">;</span> <span class="n">j</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">)</span> <span class="n">print</span><span class="o">((</span><span class="mi">10</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">)+</span><span class="s">&quot; &quot;</span><span class="o">)</span>
+<span class="c1">//打印11 12 13 21 22 23 31 32 33</span>
+</pre></div>
+
+
+<p>生成器可带守卫（注意：if前无分号）：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span><span class="o">;</span> <span class="n">j</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">i</span><span class="o">!=</span><span class="n">j</span><span class="o">)</span> <span class="n">print</span><span class="o">((</span><span class="mi">10</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">)+</span><span class="s">&quot; &quot;</span><span class="o">)</span>
+<span class="c1">//打印12 13 21 23 31 32 </span>
+</pre></div>
+
+
+<p>for推导式（yield），循环会构造出一个集合，集合与第一个生成器的类型兼容：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">10</span><span class="o">)</span> <span class="k">yield</span> <span class="n">i</span><span class="o">%</span><span class="mi">3</span>
+<span class="c1">//生成Vector(1,2,0,1,2,0,1,2,0,1)</span>
+<span class="k">for</span><span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="s">&quot;Hello&quot;</span><span class="o">;</span> <span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">1</span><span class="o">)</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">+</span><span class="n">i</span><span class="o">).</span><span class="n">toChar</span>
+<span class="c1">//生成&quot;HIeflmlmop&quot;</span>
+<span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">1</span><span class="o">;</span> <span class="n">c</span> <span class="k">&lt;-</span> <span class="s">&quot;Hel&quot;</span><span class="o">)</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">+</span><span class="n">i</span><span class="o">).</span><span class="n">toChar</span>
+<span class="c1">//生成Vector(&#39;H&#39;,&#39;e&#39;,&#39;l&#39;,&#39;I&#39;,&#39;f&#39;,&#39;m&#39;)</span>
+</pre></div>
+
+
+<h4>2.7 函数</h4>
+<p>定义函数需要名称，参数，函数体：</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">abs</span><span class="o">(</span><span class="n">x</span><span class="k">:</span><span class="kt">Double</span><span class="o">)</span> <span class="k">=</span> <span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">x</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+
+
+<p>函数可以使用代码块，块中最后一个表达式的值是函数的返回值：</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">fac</span><span class="o">(</span><span class="n">n</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">var</span> <span class="n">r</span> <span class="k">=</span> <span class="mi">1</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n</span><span class="o">)</span> <span class="n">r</span> <span class="k">=</span> <span class="n">r</span> <span class="o">*</span><span class="n">i</span>
+    <span class="n">r</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>对于递归函数，必须指明返回类型：</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">fac</span><span class="o">(</span><span class="n">n</span><span class="k">:</span><span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fac</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span>
+</pre></div>
+
+
+<h4>2.8 过程</h4>
+<p>过程就是不返回值的函数，返回类型为Unit。定义时可以略去'='，如：</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">box</span><span class="o">(</span><span class="n">s</span><span class="k">:</span><span class="kt">String</span><span class="o">){</span>
+    <span class="k">var</span> <span class="n">border</span> <span class="k">=</span> <span class="s">&quot;-&quot;</span> <span class="o">*</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="s">&quot;--\n&quot;</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">border</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span><span class="s">&quot;|\n&quot;</span> <span class="o">+</span> <span class="n">border</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>也可以显示声明：</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">box</span><span class="o">(</span><span class="n">s</span><span class="k">:</span><span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">var</span> <span class="n">border</span> <span class="k">=</span> <span class="s">&quot;-&quot;</span> <span class="o">*</span> <span class="n">s</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="s">&quot;--\n&quot;</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">border</span> <span class="o">+</span> <span class="s">&quot;|&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span><span class="s">&quot;|\n&quot;</span> <span class="o">+</span> <span class="n">border</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<hr />
+<h3>3.数组</h3>
+<h4>3.1 定长数组Array</h4>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nums</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">10</span><span class="o">)</span>
+<span class="c1">//10个整数的数组，所有元素初始化为0</span>
+<span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="mi">10</span><span class="o">)</span>
+<span class="c1">//10个元素的字符串数组，所有元素初始化为null</span>
+<span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span><span class="s">&quot;World&quot;</span><span class="o">)</span>
+<span class="c1">//已提供初始值时不需要new</span>
+<span class="n">s</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="k">=</span> <span class="s">&quot;Goodbye&quot;</span>
+<span class="c1">//使用()来访问元素</span>
+</pre></div>
+
+
+<p>在JVM中，Scala的Array以Java数组实现，比如<code>Array(2,3,5,7,11)</code>在JVM中就是一个<code>Int[]</code>。</p>
+<h4>3.2 变长数组ArrayBuffer</h4>
+<p>对于长度按需变化的数组，Java有ArrayList，C++有vector，Scala中的等效数据结构为ArrayBuffer。</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="nc">ArrayBuffer</span><span class="o">[</span><span class="kt">Int</span><span class="o">]()</span>
+<span class="c1">//或val b = new ArrayBuffer[Int]</span>
+<span class="n">b</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="c1">//用+=在尾端添加元素</span>
+<span class="n">b</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">)</span>
+<span class="c1">//添加多个元素</span>
+<span class="n">b</span> <span class="o">++=</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span><span class="mi">13</span><span class="o">,</span><span class="mi">21</span><span class="o">)</span>
+<span class="c1">//用++=追加任何集合</span>
+<span class="n">b</span><span class="o">.</span><span class="n">trimEnd</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+<span class="c1">//移除最后5个元素</span>
+</pre></div>
+
+
+<p>有时需要构建一个Array，但不知道最终要装多少元素，可以先构建一个数组缓冲ArrayBuffer，然后转化为Array：</p>
+<div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">toArray</span>
+</pre></div>
+
+
+<p>同时，你可以使用<code>insert</code>和<code>remove</code>来插入或移除元素。</p>
+<h4>3.3 遍历数组</h4>
+<p>使用for循环：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="n">until</span> <span class="n">a</span><span class="o">.</span><span class="n">length</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">a</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
+</pre></div>
+
+
+<p>until是RichInt类的方法，<code>0 until 10</code>实际上是<code>0.until(10)</code>，如果想让区间是每两个元素一跳，可以这样写<code>0 until (a.length, 2)</code>，如果从数组尾端开始，可以这样写<code>(0 until a.length).reverse</code>。</p>
+<p>如果在循环体中不需要用到数组下标，我们可以直接访问数组元素：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">elem</span> <span class="k">&lt;-</span> <span class="n">a</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">elem</span><span class="o">)</span>
+</pre></div>
+
+
+<h4>3.4 数组转换</h4>
+<p>在Scala，从一个数组或变长数组出发，以某种方式对它进行转换是很简单的，这些转换动作不会修改原始数组，而是产生一个全新的数组。
+比如使用for yield推倒式：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">11</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">result</span> <span class="k">=</span> <span class="k">for</span> <span class="o">(</span><span class="n">elem</span> <span class="k">&lt;-</span> <span class="n">a</span><span class="o">)</span> <span class="k">yield</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">elem</span>
+<span class="c1">//result是Array(4,6,10,14,22)</span>
+</pre></div>
+
+
+<p>当你遍历一个集合，只想处理那些满足特定条件的元素时，你可以加入守卫,比如这里对每个偶数元素翻倍，丢到奇数元素：</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="n">elem</span> <span class="k">&lt;-</span> <span class="n">a</span> <span class="k">if</span> <span class="n">elem</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">yield</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">elem</span>
+</pre></div>
+
+
+<p>另一种做法：</p>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="k">_</span><span class="o">)</span>
+</pre></div>
+
+
+<h4>3.5 数组常用算法</h4>
+<p>求最小和最大<code>min</code>和<code>max</code>
+求和（数值类型）：</p>
+<div class="highlight"><pre><span></span><span class="nc">Array</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">9</span><span class="o">).</span><span class="n">sum</span>
+<span class="c1">//19</span>
+</pre></div>
+
+
+<p>排序<code>sorted</code>：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">b</span> <span class="k">=</span> <span class="nc">ArrayBuffer</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">9</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">bSorted</span> <span class="k">=</span> <span class="n">b</span><span class="o">.</span><span class="n">sorted</span> <span class="c1">//ArrayBuffer(1,2,7,9)</span>
+</pre></div>
+
+
+<p>排序（提供比较函数）<code>sortWwith</code>：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bDescending</span> <span class="k">=</span> <span class="n">b</span><span class="o">.</span><span class="n">sortWith</span><span class="o">(</span><span class="k">_</span> <span class="o">&gt;</span> <span class="k">_</span><span class="o">)</span> <span class="c1">//ArrayBuffer(9,7,2,1)</span>
+</pre></div>
+
+
+<p>显示<code>mkString</code>：</p>
+<div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">mkString</span><span class="o">(</span><span class="s">&quot; and &quot;</span><span class="o">)</span>
+<span class="c1">//&quot;1 and 7 and 2 and 9&quot;</span>
+</pre></div>
+
+
+<p>显示<code>toString</code>：</p>
+<div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">toString</span>
+<span class="c1">//&quot;ArrayBuffer(1,7,2,9)&quot;</span>
+</pre></div>
+
+
+<h4>3.6 多维数组</h4>
+<p>多维数组是通过数组的数组来实现的，举例来说，<code>Double</code>的二维数组类型为<code>Array[Array[Double]]</code>，构造时可以用ofDim方法：</p>
+<div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">matrix</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">.</span><span class="n">ofDim</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">)</span> <span class="c1">//3*4</span>
+</pre></div>
+
+
+<p>访问元素时使用两对圆括号：</p>
+<div class="highlight"><pre><span></span><span class="n">matrix</span><span class="o">(</span><span class="n">row</span><span class="o">)(</span><span class="n">column</span><span class="o">)</span> <span class="k">=</span> <span class="mi">42</span>
+</pre></div>
+
+
+<hr />
+<h3>参考书籍：</h3>
+<ul>
+<li><a href="http://book.douban.com/subject/19971952/">快学Scala </a></li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+            
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox"></div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d3af0e9a805928"></script>
+    <!-- AddThis Button END -->
+
+<!-- 多说评论框 start -->
+    <div class="ds-thread"  data-url="blog.tomgou.xyz/kuai-xue-scalachu-ji-a1zheng-li-1.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tomgou"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+            
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/plain1994"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+                <li class="list-group-item"><a href="http://weibo.com/tomgou"><i class="fa fa-weibo fa-lg"></i> weibo</a></li>
+                <li class="list-group-item"><a href="http://www.facebook.com/yuchuangou"><i class="fa fa-facebook-square fa-lg"></i> facebook</a></li>
+              </ul>
+            </li>
+
+            <li class="list-group-item"><a href="http://blog.tomgou.xyz/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.tomgou.xyz/tag/basic.html">
+                            basic
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/hadoop.html">
+                            Hadoop
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/installation.html">
+                            Installation
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/intellij-idea.html">
+                            IntelliJ IDEA
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/pycharm.html">
+                            PyCharm
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/pyspark.html">
+                            pyspark
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/scala.html">
+                            Scala
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.tomgou.xyz/tag/spark.html">
+                            Spark
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+      </ul>
+    </li>
+        
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+    </li>
+        
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5i7e91zcj7e&amp;m=6&amp;s=240&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0" async="async"></script>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Yuchuan Gou
+            &middot; Powered by 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>,
+            <a href="https://www.python.org" target="_blank">Python</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.tomgou.xyz/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.tomgou.xyz/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.tomgou.xyz/theme/js/respond.min.js"></script>
+
+    <script src="http://blog.tomgou.xyz/theme/js/bodypadding.js"></script>
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://blog.tomgou.xyz/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'plain1994',
+                count: 3,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://blog.tomgou.xyz/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-74218843-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+
+</body>
+</html>
