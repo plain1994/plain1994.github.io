@@ -16,7 +16,7 @@
 body {
   background-color: #f2f2f2;
     font-family: "Lato";
-    font-weight: 300;
+    font-weight: 500;
     font-size: 16px;
     color: #555;
 
@@ -31,7 +31,7 @@ body {
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
-    font-weight: 300;
+    font-weight: 500;
     color: #333;
 }
 
@@ -177,6 +177,10 @@ a:after {
 	letter-spacing: 1px;
 }
 
+#headerwrap a {
+	color: #ff7878;
+}
+
 
 /* Dark Grey Wrap */
 #dg {
@@ -206,8 +210,8 @@ a:after {
 /* Red Wrap */
 #r {
 	background: #ff7878;
-	padding-top: 35px;
-	padding-bottom: 35px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 #r h4 {
@@ -217,6 +221,7 @@ a:after {
 
 #r p {
 	color: white;
+    font-weight: 400;
 }
 
 /* Blue Wrap */
@@ -343,6 +348,16 @@ a:after {
 
 .w h4 {
 	font-weight: 700;
+    font-size: 30px;
+}
+
+.w p {
+	font-weight: 330;
+    font-size: 21px;
+}
+
+.w a {
+	color: #ff7878;
 }
 
 .w i {
@@ -358,6 +373,10 @@ a:after {
 
 .wb h4 {
 	font-weight: 700;
+}
+
+.wb a {
+	color: #ff7878;
 }
 
 .desc {
