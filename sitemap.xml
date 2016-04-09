@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.tomgou.xyz/</loc>
-<lastmod>2016-04-06T06:49:45-00:00</lastmod>
+<lastmod>2016-04-09T18:41:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.tomgou.xyz/archives.html</loc>
-<lastmod>2016-04-06T06:49:45-00:00</lastmod>
+<lastmod>2016-04-09T18:41:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.tomgou.xyz/tags.html</loc>
-<lastmod>2016-04-06T06:49:45-00:00</lastmod>
+<lastmod>2016-04-09T18:41:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.tomgou.xyz/categories.html</loc>
-<lastmod>2016-04-06T06:49:45-00:00</lastmod>
+<lastmod>2016-04-09T18:41:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
